@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Form</title>
+  <!-- Add Bootstrap CSS link -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    /* Custom CSS for Login Form */
+    .login-container {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f7f7f7;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .login-title {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+
+    .login-form .form-control {
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+
+    .login-form .btn {
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 login-container">
+        <h2 class="login-title">Login</h2>
+
+        {% if messages %}
+          
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{message}}
+
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+        {% endfor %}
+
+    {% endif %}
+
+
+        <form  method="post" class="login-form"   >
+          {% csrf_token %}
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="username" id="login_username" name="login_username">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" id="login_password" name="login_password">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="cn" style="text-align: center;">
+  
+  <p>Don't have an account? <a href="register">Register here</a></p></div>
+</div>
+</body>
+
+  <!-- Add Bootstrap JS link -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
