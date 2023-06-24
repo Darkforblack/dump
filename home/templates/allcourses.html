@@ -47,38 +47,20 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <!-- <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form> -->
+                   
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800"> <strong> All Courses</strong>  </h1>
-                        
-                                
+                                  
                     </div>
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                        
-                        
-
-                    
-
                         <div class="topbar-divider d-none d-sm-block"></div>
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <!-- <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+                           
                                 <a class="nav-link dropdown-toggle" href="dash">
                                     <strong style="color:gold">{{ request.user.username  }} </strong> </a>
                                 
@@ -109,23 +91,11 @@
                     </ul>
 
 
-                    
-
-
-
-
                 </nav>
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-
-                    <!-- Page Heading -->
-                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div> -->
 
                     <!-- Content Row -->
                     <div class="row">
@@ -148,9 +118,13 @@
                                             
                                                 <div class="h5 mb-0 font-weight-bold text-gray-800">  ₹ {{ i.fee }}</div>
                                         </div>
+                                        <div>
+                                            <a href="/update_course/{{i.id}}"> update</a>
+                                        </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
                                         </div>
+   
                                     </div>
                                 </div>
                             </div>

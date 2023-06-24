@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Register</title>
+  <title>login</title>
   <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel='stylesheet' href='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/css/demo.css'>
@@ -148,42 +148,32 @@
       color: aqua;
     }
   </style>
-  
 </head>
 <body>
 <div id="large-header" class="large-header">
   <canvas id="demo-canvas"></canvas>
 
   <div class="login-container">
-    <h2 class="login-title">Register</h2>
-
+    <h2 class="login-title">Login</h2>
     <form method="post" class="login-form">
       {% csrf_token %}
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Username" id="username" name="username" pattern="[A-Za-z ]+" title="Name should only contain letters and spaces" required>
+        <input type="text" class="form-control" placeholder="Username" id="login_username" name="login_username">
       </div>
-
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" title="Email must be in the format example@example.com and end with .com" required>
+        <input type="password" class="form-control" placeholder="Password" id="login_password" name="login_password">
       </div>
-
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special symbol." required>
-      </div>
-
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="Re-type Password" id="re_password" name="re_password">
-      </div>
-
-      <button type="submit" class="btn btn-primary btn-block">Register</button>
+      <button type="submit" class="btn btn-primary btn-block">Login</button>
     </form>
+    <p>Don't have an account? <a href="/register">Register here</a></p>
   </div>
+
 </div>
 
 <script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js'></script>
 <script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js'></script>
 <script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js'></script>
-<script src="/media/assets/js/bgscript.js"></script>
+<script src="media/assets/js/bgscript.js"></script>
 
 </body>
 </html>

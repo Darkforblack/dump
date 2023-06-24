@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>All Courses</title>
+    <title>rec_students</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -60,7 +60,7 @@
                         </div>
                     </form> -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800"> <strong> All Courses</strong>  </h1>
+                        <h1 class="h3 mb-0 text-gray-800"> <strong> All Students</strong>  </h1>
                         
                                 
                     </div>
@@ -79,7 +79,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <!-- <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
-                                <a class="nav-link dropdown-toggle" href="profile">
+                                <a class="nav-link dropdown-toggle" href="dash">
                                     <strong style="color:gold">{{ request.user.username  }} </strong> </a>
                                 
                             </a>
@@ -120,12 +120,7 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <!-- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div> -->
+                   
 
                     <!-- Content Row -->
                     <div class="row">
@@ -133,39 +128,81 @@
 
                         <!-- Earnings (Monthly) Card Example -->
                         <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
+                            <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">
-                                                ID:  {{ i.id }}</div>
-                                            
+                                                ID: {{ i.id }}
+                                            </div>
+                        
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                               Course:  {{ i.title }}</div>
-                                               
-                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                    Teacher:  {{ i.instructor }} </div>
-                                            
-                                                <div class="h5 mb-0 font-weight-bold text-gray-800">  ₹ {{ i.fee }}</div>
+                                                Name: {{ i.username }}
+                                            </div>
+                        
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                Email: {{ i.email }}
+                                            </div>
+                        
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1 d-flex justify-content-between">
+                                                <div>
+                                                    <a href="/rec_student_courses/{{ i.id }}" style="color: gold;">View</a>
+                                                </div> 
+                                                
+                                                <div><br>
+                                                    <a href="/remove_user/{{ i.id }}" style="color: red;">Remove user</a>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                        </div>
-
-                                        <div clas="fas fa-calendar fa-2x text-gray-300" >
-                                            <a href="/enrollcourse">Enroll Now</a>
-                                            
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        
+                        
+                       
                         {% endfor %}
 
                     </div>
                     <br>
-                    
+                    <hr>
 
+                     <footer> 
+                       
+
+
+
+
+                        <div class="row">
+
+                            
+                            <!-- Earnings (Monthly) Card Example -->
+                            <div class="col-xl-3 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                  
+                                                <a href="register"> Add student</a></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            </div>
+                            
+                        
+                           
+                     </footer>
                         
                    
     <!-- Bootstrap core JavaScript-->

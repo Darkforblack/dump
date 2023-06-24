@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rec_students2.html</title>
+</head>
+<body>
+    <h1>List of Students</h1>
+<ul>
+  {% for student in data %}
+    <li>
+      {{ student.username }} - <a href="{% url 'rec_student_courses' student.id %}">View Courses</a>
+    </li>
+  {% empty %}
+    <li>No students found.</li>
+  {% endfor %}
+</ul>
+
+    
+</body>
+</html>

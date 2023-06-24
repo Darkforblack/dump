@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Register</title>
+  <title>CodePen - Animated Background</title>
   <link href='https://fonts.googleapis.com/css?family=Raleway:200,400,800' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
   <link rel='stylesheet' href='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/css/demo.css'>
@@ -15,7 +15,7 @@
       padding: 20px;
       background-color: transparent;
       border-radius: 5px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: none;
       position: relative;
       z-index: 1;
     }
@@ -25,6 +25,7 @@
       font-size: 24px;
       margin-bottom: 20px;
       color: #fff;
+      font-family: 'Raleway', sans-serif;
     }
 
     .login-form .form-control {
@@ -94,7 +95,8 @@
     .cn a {
       color: aqua;
     }
-     /* Custom CSS for Login Form */
+
+    /* Custom styles for the form */
     .login-container {
       max-width: 400px;
       margin: 0 auto;
@@ -109,73 +111,75 @@
       z-index: 1;
     }
 
-    .login-title {
-      text-align: center;
-      font-size: 24px;
-      margin-bottom: 20px;
+    .form-group {
+      margin-bottom: 15px;
     }
 
-    .login-form .form-control {
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    select,
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
       border-radius: 3px;
-      margin-bottom: 10px;
-      background-color: transparent;
-      border: none;
-      border-bottom: 1px solid #ccc;
+      border: 1px solid #ccc;
       box-shadow: none;
+      font-size: 16px;
+      color: #333;
+      background-color: rgba(255, 255, 255, 0.5);
     }
 
-    .login-form .btn {
-      background-color: transparent;
-      color: white;
-    }
-
-    :root {
-      --sub-nav-mktg-shadow: 0 0 0 1px rgba(53, 72, 91, 0.14), 0 3px 2px rgba(0, 0, 0, 0.04), 0 7px 7px rgba(0, 0, 0, 0.03);
-    }
-    .login-form .form-control {
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
       border-radius: 3px;
-      margin-bottom: 10px;
-      background-color: transparent;
-      border: none;
-      border-bottom: 1px solid #ccc;
-      box-shadow: none;
+      font-size: 16px;
+      cursor: pointer;
     }
-    .login-form .form-control::placeholder {
-      color: white;
+
+    button[type="submit"]:hover {
+      background-color: #555;
     }
-    
-    a {
-      color: aqua;
+    label{
+        color: white;
     }
   </style>
-  
 </head>
 <body>
 <div id="large-header" class="large-header">
   <canvas id="demo-canvas"></canvas>
 
   <div class="login-container">
-    <h2 class="login-title">Register</h2>
-
-    <form method="post" class="login-form">
+    <form method="post" action="/enrollcourse" class="login-form">
       {% csrf_token %}
+      <h2 class="login-title">Enroll Now</h2>
+
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Username" id="username" name="username" pattern="[A-Za-z ]+" title="Name should only contain letters and spaces" required>
+        <label for="selected_course">Select the course:</label>
+        <select name="selected_course" id="selected_course">
+          {% for course in data %}
+            {% if course.id not in enrolled_course_ids %}
+              <option value="{{ course.id }}">{{ course.title }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
       </div>
 
       <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$" title="Email must be in the format example@example.com and end with .com" required>
+        <label for="amount_paid">Amount Paying:</label>
+        <input type="text" id="amount_paid" name="amount_paid" value="{{ obj.amount_paid }}">
       </div>
 
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" id="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*\W).{8,}" title="Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, one number, and one special symbol." required>
-      </div>
-
-      <div class="form-group">
-        <input type="password" class="form-control" placeholder="Re-type Password" id="re_password" name="re_password">
-      </div>
-
-      <button type="submit" class="btn btn-primary btn-block">Register</button>
+      <button type="submit">Enroll Now</button>
     </form>
   </div>
 </div>
@@ -183,7 +187,7 @@
 <script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/EasePack.min.js'></script>
 <script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/rAF.js'></script>
 <script src='https://www.marcoguglie.it/Codepen/AnimatedHeaderBg/demo-1/js/TweenLite.min.js'></script>
-<script src="/media/assets/js/bgscript.js"></script>
+<script src="media/assets/js/bgscript.js"></script>
 
 </body>
 </html>
